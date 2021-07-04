@@ -13,7 +13,8 @@
         <entry key="root">
           <value>
             <ProjectSettingsEntry>
-              <option name="confDir" value="F:\Studies\Scala\PlayProjects\BookStoreApp\app" />
+              <option name="sourceDir" value="F:\Studies\Scala\PlayProjects\BookStoreApp\app" />
+              <option name="confDir" value="F:\Studies\Scala\Play_Framework_Scala\BookStoreApp\app" />
               <option name="templateImports">
                 <list>
                   <option value="_root_.play.twirl.api.TwirlFeatureImports._" />
@@ -36,7 +37,7 @@
                   <option value="controllers.Assets.Asset" />
                 </list>
               </option>
-              <option name="uri" value="/F:/Studies/Scala/PlayProjects/BookStoreApp" />
+              <option name="uri" value="/F:/Studies/Scala/Play_Framework_Scala/BookStoreApp" />
             </ProjectSettingsEntry>
           </value>
         </entry>

@@ -4,6 +4,8 @@ import javax.inject._
 
 import play.api.mvc._
 
+import views.html.Home._
+
 /**
  * This controller creates an `Action` to handle HTTP requests to the
  * application's home page.
@@ -20,6 +22,14 @@ class HomeController @Inject()(cc: ControllerComponents) (implicit assetsFinder:
    */
   def index = Action {
     Ok(views.html.index("Your new application is ready."))
+  }
+  def about: Action[AnyContent] = Action {
+    Ok(views.html.index("Hello My new Try..."))
+
+  }
+  def welcome(name : String, lastname : String): Action[AnyContent] = Action {
+    Ok(views.html.Home.welcome.render(name, lastname))
+
   }
 
 }
