@@ -1,0 +1,7 @@
+[0m[[0m[31merror[0m] [0m[0mF:\Studies\Scala\play-samples-play-scala-starter-example\app\controllers\HomeController.scala:23:9: value i is not a member of object Int[0m
+[0m[[0m[31merror[0m] [0m[0m    Int i = 100;[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0mF:\Studies\Scala\play-samples-play-scala-starter-example\app\controllers\HomeController.scala:24:12: value name is not a member of object String[0m
+[0m[[0m[31merror[0m] [0m[0m    String name = "Dilshan98";[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

@@ -1,0 +1,6 @@
+compile
+run
+sbt run -jvm-debug 9999
+sbt -jvm-debug 9999
+sbt -jvm-debug 5002
+sbt run -jvm-debug 9999
