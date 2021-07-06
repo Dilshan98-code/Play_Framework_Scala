@@ -1,0 +1,26 @@
+[0m[[0m[31merror[0m] [0m[0mF:\Studies\Scala\Play_Framework_Scala\BookStoreApp\app\controllers\BooksController.scala:10:15: class com.sun.xml.internal.bind.v2.TODO is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m  def index = TODO[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0mF:\Studies\Scala\Play_Framework_Scala\BookStoreApp\app\controllers\BooksController.scala:13:16: class com.sun.xml.internal.bind.v2.TODO is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m  def create = TODO[0m
+[0m[[0m[31merror[0m] [0m[0m               ^[0m
+[0m[[0m[31merror[0m] [0m[0mF:\Studies\Scala\Play_Framework_Scala\BookStoreApp\app\controllers\BooksController.scala:16:14: class com.sun.xml.internal.bind.v2.TODO is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m  def save = TODO[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0mF:\Studies\Scala\Play_Framework_Scala\BookStoreApp\app\controllers\BooksController.scala:18:23: class com.sun.xml.internal.bind.v2.TODO is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m  def edit(id : Int)= TODO[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0mF:\Studies\Scala\Play_Framework_Scala\BookStoreApp\app\controllers\BooksController.scala:20:16: class com.sun.xml.internal.bind.v2.TODO is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m  def update = TODO[0m
+[0m[[0m[31merror[0m] [0m[0m               ^[0m
+[0m[[0m[31merror[0m] [0m[0mF:\Studies\Scala\Play_Framework_Scala\BookStoreApp\app\controllers\BooksController.scala:22:27: class com.sun.xml.internal.bind.v2.TODO is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m  def destroy(id : Int) = TODO[0m
+[0m[[0m[31merror[0m] [0m[0m                          ^[0m
+[0m[[0m[31merror[0m] [0m[0mF:\Studies\Scala\Play_Framework_Scala\BookStoreApp\app\controllers\BooksController.scala:26:24: class com.sun.xml.internal.bind.v2.TODO is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m  def show(id : Int) = TODO[0m
+[0m[[0m[31merror[0m] [0m[0m                       ^[0m
+[0m[[0m[31merror[0m] [0m[0mF:\Studies\Scala\Play_Framework_Scala\BookStoreApp\conf\routes:13:1: type BooksController is not a member of package controllers[0m
+[0m[[0m[31merror[0m] [0m[0mGET     /books                      controllers.BooksController.index[0m
+[0m[[0m[31merror[0m] [0m[0mF:\Studies\Scala\Play_Framework_Scala\BookStoreApp\conf\routes:13:1: type BooksController is not a member of package controllers[0m
+[0m[[0m[31merror[0m] [0m[0mGET     /books                      controllers.BooksController.index[0m
+[0m[[0m[31merror[0m] [0m[0m9 errors found[0m
