@@ -7,7 +7,8 @@ import play.mvc._
 object BooksController extends Controller{
 
   // for all books
-  def index = TODO
+  def index =
+    TODO
 
   //to create book
   def create = TODO
