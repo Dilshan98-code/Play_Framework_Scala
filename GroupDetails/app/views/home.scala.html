@@ -1,10 +1,11 @@
-@(id1:Int,id2:Int, id3:Int,
-        reg1: String,reg2: String,reg3: String,
-        name1: String,name2: String,name3: String)
-
+@import Models.Student
+@(students : Array[Student])
 <!doctype html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Home</title>
     </head>
     <body>
@@ -14,21 +15,13 @@
                 <th>Registration</th>
                 <th>Name</th>
             </tr>
-            <tr>
-                <td>@id1</td>
-                <td>@reg2</td>
-                <td>@name1</td>
-            </tr>
-            <tr>
-                <td>@id2</td>
-                <td>@reg2</td>
-                <td>@name2</td>
-            </tr>
-            <tr>
-                <td>@id3</td>
-                <td>@reg3</td>
-                <td>@name3</td>
-            </tr>
+            @for(student <- students)
+                <tr>
+                    <td>@student.index</td>
+                    <td>@student.registrationNo</td>
+                    <td>@student.name</td>
+                </tr>
+
         </table>
 
     </body>
