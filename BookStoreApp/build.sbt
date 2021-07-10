@@ -15,3 +15,10 @@ lazy val root = (project in file("."))
       "-Xfatal-warnings"
     )
   )
+libraryDependencies ++= Seq(
+  jdbc
+)
+
+libraryDependencies ++= Seq(
+  "mysql" % "mysql-connector-java" % "5.1.41"
+)

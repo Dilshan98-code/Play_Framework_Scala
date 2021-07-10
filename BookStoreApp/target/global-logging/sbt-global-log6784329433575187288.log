@@ -1,0 +1,11 @@
+[debug] > Exec(public abstract class Book {   var id : Int   var title : String   var price : Int   var author : String    def Book(id : Int, title : String, price: Int, author: String): Unit =   {     this.id = id     this.title = title     this.price = price     this.author = author   }val books: Set[Int] = Set(1,2,3), None, None)
+[error] Expected ID character
+[error] Not a valid command: public (similar: plugin)
+[error] Expected project ID
+[error] Expected configuration
+[error] Expected ':'
+[error] Expected key
+[error] Not a valid key: public (similar: publish, webPublic, publishTo)
+[error] public abstract class Book {   var id : Int   var title : String   var price : Int   var author : String    def Book(id : Int, title : String, price: Int, author: String): Unit =   {     this.id = id     this.title = title     this.price = price     this.author = author   }val books: Set[Int] = Set(1,2,3)
+[error]       ^
+[debug] > Exec(idea-shell, None, None)

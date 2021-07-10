@@ -1,7 +1,8 @@
 package Models
 import scala.collection.immutable._
 
-public abstract class Book {
+
+case  class Book {
   var id : Int
   var title : String
   var price : Int
@@ -14,23 +15,22 @@ public abstract class Book {
     this.price = price
     this.author = author
   }
-  var books:HashSet[Book] = HashSet((1,"C++",20,"ABC"),(2,"Java",30,"XYZ"))
+  var books: Set[Book] = Set((1,"C++",20,"ABC"),(2,"Java",30,"XYZ"))
 
-
-  def allBooks: HashSet[Book]={
-    return books
+  def allBooks: Set[Book]={
+    return this.books
   }
 
-  def findById(id : Int) : Book={
-    for(book <- books){
+  def findById(id : Int) : Object[Book]={
+    for(book <- this.books){
       if(book.id.equals(id))
         return book
     }
     return null
   }
 
-  def add(book: Book): Unit ={
-    books = books.+(book)
+  def add(book: Book){
+
   }
 
   def remove(book: Book): Boolean ={
@@ -42,4 +42,5 @@ public abstract class Book {
       return false
     }
   }
+
 }
