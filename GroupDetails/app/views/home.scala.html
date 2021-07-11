@@ -15,12 +15,13 @@
                 <th>Registration</th>
                 <th>Name</th>
             </tr>
-            @for(student <- students)
+            @for(student <- students) {
                 <tr>
-                    <td>@student.index</td>
-                    <td>@student.registrationNo</td>
-                    <td>@student.name</td>
+                    <th>@student.IndexNo</th>
+                    <th>@student.RegistrationNo</th>
+                    <th>@student.Name</th>
                 </tr>
+            }
 
         </table>
 

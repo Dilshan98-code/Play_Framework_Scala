@@ -27,23 +27,17 @@ class HomeController @Inject()(db: Database, cc: ControllerComponents) extends A
   // creating the database connection to retrieve the data
   val connection: Connection = db.getConnection()
   val statement: Statement = connection.createStatement
-  val query = "SELECT * FROM groupdetails"
+  val query = "SELECT * FROM `groupdetails`"
   val results: ResultSet = statement.executeQuery(query)
 
-  val students : Array[Student] = new Array[Student](3)
+  var students = new Array[Student](3)
 
-//  // creating three array variables to store the database query details
-//  var indexSet: Array[Int] = new Array[Int](3) // Index No array
-//  var registrationNoSet: Array[String] = new Array[String](3) // Registration No array
-//  var nameSet : Array[String] = new Array[String](3) // Name Array
-
-    var j = 0
+    var i : Int = 0
     while(results.next()){
-      students(j).index = results.getInt("IndexNo")
-      students(j).registrationNo = results.getString("RegistrationNo")
-      students(j).name = results.getString("Name")
-      j= j+1
+      students(i) = new Student(results.getInt("IndexNo"):Int,results.getString("RegistrationNo"):String,results.getString("Name"):String)
+      i= i+1
     }
+
 
   def index(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.index())

@@ -1,13 +1,10 @@
 package Models
 
-abstract class Student() {
-  var index: Int
-  var registrationNo: String
-  var name: String
+class Student(index: Int, registrationNo: String, name: String)
+{
+  var IndexNo : Int = index
+  var RegistrationNo: String = registrationNo
+  var Name : String = name
 
-  def Student(index: Int, registrationNo: String, name: String): Unit = {
-    this.index = index
-    this.registrationNo = registrationNo
-    this.name = name
-  }
 }
+

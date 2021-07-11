@@ -15,18 +15,17 @@ import play.api.templates.PlayMagic._
 import play.api.mvc._
 import play.api.data._
 /*1.2*/import Models.Student
-/*2.2*/import controllers.HomeController
 
 object home extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[Array[Student],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*3.2*/(students : Array[Student]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*2.2*/(students : Array[Student]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*3.29*/("""
-"""),format.raw/*4.1*/("""<!doctype html>
+Seq[Any](format.raw/*2.29*/("""
+"""),format.raw/*3.1*/("""<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -41,14 +40,15 @@ Seq[Any](format.raw/*3.29*/("""
                 <th>Registration</th>
                 <th>Name</th>
             </tr>
-            """),_display_(/*19.14*/for(student <- students)),format.raw/*19.38*/("""
-                """),format.raw/*20.17*/("""<tr>
-                    <td>"""),_display_(/*21.26*/student/*21.33*/.index),format.raw/*21.39*/("""</td>
-                    <td>"""),_display_(/*22.26*/student/*22.33*/.registrationNo),format.raw/*22.48*/("""</td>
-                    <td>"""),_display_(/*23.26*/student/*23.33*/.name),format.raw/*23.38*/("""</td>
+            """),_display_(/*18.14*/for(student <- students) yield /*18.38*/ {_display_(Seq[Any](format.raw/*18.40*/("""
+                """),format.raw/*19.17*/("""<tr>
+                    <th>"""),_display_(/*20.26*/student/*20.33*/.IndexNo),format.raw/*20.41*/("""</th>
+                    <th>"""),_display_(/*21.26*/student/*21.33*/.RegistrationNo),format.raw/*21.48*/("""</th>
+                    <th>"""),_display_(/*22.26*/student/*22.33*/.Name),format.raw/*22.38*/("""</th>
                 </tr>
+            """)))}),format.raw/*24.14*/("""
 
-        </table>
+        """),format.raw/*26.9*/("""</table>
 
     </body>
 </html>"""))
@@ -68,9 +68,9 @@ Seq[Any](format.raw/*3.29*/("""
               /*
                   -- GENERATED --
                   SOURCE: app/views/home.scala.html
-                  HASH: 4a471daaef5484c4ed0575edc3e65058373ab69e
-                  MATRIX: 432->1|461->25|806->61|928->88|956->90|1495->602|1540->626|1586->644|1644->675|1660->682|1687->688|1746->720|1762->727|1798->742|1857->774|1873->781|1899->786
-                  LINES: 17->1|18->2|23->3|28->3|29->4|44->19|44->19|45->20|46->21|46->21|46->21|47->22|47->22|47->22|48->23|48->23|48->23
+                  HASH: 72b002b602499899be75c8b71fab8a2f324973e5
+                  MATRIX: 432->1|765->25|887->52|915->54|1454->566|1494->590|1534->592|1580->610|1638->641|1654->648|1683->656|1742->688|1758->695|1794->710|1853->742|1869->749|1895->754|1969->797|2008->809
+                  LINES: 17->1|22->2|27->2|28->3|43->18|43->18|43->18|44->19|45->20|45->20|45->20|46->21|46->21|46->21|47->22|47->22|47->22|49->24|51->26
                   -- GENERATED --
               */
           
