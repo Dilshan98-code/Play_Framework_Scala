@@ -1,0 +1,29 @@
+@import Models.Student
+@(students : Array[Student])
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Home</title>
+    </head>
+    <body>
+        <table border="2">
+            <tr>
+                <th>Index</th>
+                <th>Registration</th>
+                <th>Name</th>
+            </tr>
+                <tr>
+                    @for(student <- students) {
+                        <th>@student.IndexNo</th>
+                        <th>@student.RegistrationNo</th>
+                        <th>@student.Name</th>
+                    }
+                </tr>
+
+        </table>
+
+    </body>
+</html>
