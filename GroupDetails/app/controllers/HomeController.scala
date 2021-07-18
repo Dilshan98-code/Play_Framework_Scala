@@ -16,29 +16,26 @@ import java.sql.{Connection, ResultSet, Statement}
  */
 class HomeController @Inject()(db: Database, cc: ControllerComponents) extends AbstractController(cc) {
 
-  /**
-   * Create an Action to render an HTML page.
-   *
-   * The configuration in the `routes` file means that this method
-   * will be called when the application receives a `GET` request with
-   * a path of `/`.
-   */
-
   // creating the database connection to retrieve the data
   val connection: Connection = db.getConnection()
   val statement: Statement = connection.createStatement
   val query = "SELECT * FROM `groupdetails`"
   val results: ResultSet = statement.executeQuery(query)
 
+  // creating object array of students
   var students = new Array[Student](3)
-
+  // add values to the array objects
     var i : Int = 0
     while(results.next()){
-      students(i) = new Student(results.getInt("IndexNo"):Int,results.getString("RegistrationNo"):String,results.getString("Name"):String)
+      students(i) = new Student(
+        results.getInt("IndexNo"):Int,
+        results.getString("RegistrationNo"):String,
+        results.getString("Name"):String
+      )
       i= i+1
     }
 
-
+// default started package functions
   def index(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.index())
   }
@@ -50,6 +47,8 @@ class HomeController @Inject()(db: Database, cc: ControllerComponents) extends A
   def tutorial(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.tutorial())
   }
+
+  // define home function to show the details in html view
   def home: Action[AnyContent] = Action{implicit request: Request[AnyContent] =>
     Ok(views.html.home(students))
   }
