@@ -1,10 +1,13 @@
 package controllers
 
+import Models.Student
+
 import javax.inject.Inject
 import play.api._
 import play.api.mvc._
 import play.api.db._
 
+import java.lang.reflect
 import java.sql.{Connection, ResultSet, Statement}
 
 /**
@@ -13,32 +16,26 @@ import java.sql.{Connection, ResultSet, Statement}
  */
 class HomeController @Inject()(db: Database, cc: ControllerComponents) extends AbstractController(cc) {
 
-  /**
-   * Create an Action to render an HTML page.
-   *
-   * The configuration in the `routes` file means that this method
-   * will be called when the application receives a `GET` request with
-   * a path of `/`.
-   */
-
   // creating the database connection to retrieve the data
   val connection: Connection = db.getConnection()
   val statement: Statement = connection.createStatement
-  val query = "SELECT * FROM groupdetails"
+  val query = "SELECT * FROM `groupdetails`"
   val results: ResultSet = statement.executeQuery(query)
 
-  // creating three array variables to store the database query details
-  var indexSet: Array[Int] = new Array[Int](3) // Index No array
-  var registrationNoSet: Array[String] = new Array[String](3) // Registration No array
-  var nameSet : Array[String] = new Array[String](3) // Name Array
+  // creating object array of students
+  var students = new Array[Student](3)
+  // add values to the array objects
+    var i : Int = 0
+    while(results.next()){
+      students(i) = new Student(
+        results.getInt("IndexNo"):Int,
+        results.getString("RegistrationNo"):String,
+        results.getString("Name"):String
+      )
+      i= i+1
+    }
 
-  var i: Int =0
-  while(results.next()){
-    indexSet(i) = results.getInt("IndexNo")
-    registrationNoSet(i) = results.getString("RegistrationNo")
-    nameSet(i) = results.getString("Name")
-    i= i+1
-  }
+// default started package functions
   def index(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.index())
   }
@@ -50,11 +47,10 @@ class HomeController @Inject()(db: Database, cc: ControllerComponents) extends A
   def tutorial(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.tutorial())
   }
+
+  // define home function to show the details in html view
   def home: Action[AnyContent] = Action{implicit request: Request[AnyContent] =>
-    Ok(views.html.home(
-      indexSet(0),indexSet(1),indexSet(2),registrationNoSet(0),registrationNoSet(1),registrationNoSet(2),
-      nameSet(0),nameSet(1),nameSet(2)
-    ))
+    Ok(views.html.home(students))
   }
 }
 

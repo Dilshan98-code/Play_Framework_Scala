@@ -14,22 +14,23 @@ import views.html._
 import play.api.templates.PlayMagic._
 import play.api.mvc._
 import play.api.data._
+/*1.2*/import Models.Student
 
-object home extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template9[Int,Int,Int,String,String,String,String,String,String,play.twirl.api.HtmlFormat.Appendable] {
+object home extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[Array[Student],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(id1:Int,id2:Int, id3:Int,
-        reg1: String,reg2: String,reg3: String,
-        name1: String,name2: String,name3: String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*2.2*/(students : Array[Student]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*3.51*/("""
-
-"""),format.raw/*5.1*/("""<!doctype html>
+Seq[Any](format.raw/*2.29*/("""
+"""),format.raw/*3.1*/("""<!doctype html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Home</title>
     </head>
     <body>
@@ -39,22 +40,15 @@ Seq[Any](format.raw/*3.51*/("""
                 <th>Registration</th>
                 <th>Name</th>
             </tr>
-            <tr>
-                <td>"""),_display_(/*18.22*/id1),format.raw/*18.25*/("""</td>
-                <td>"""),_display_(/*19.22*/reg2),format.raw/*19.26*/("""</td>
-                <td>"""),_display_(/*20.22*/name1),format.raw/*20.27*/("""</td>
-            </tr>
-            <tr>
-                <td>"""),_display_(/*23.22*/id2),format.raw/*23.25*/("""</td>
-                <td>"""),_display_(/*24.22*/reg2),format.raw/*24.26*/("""</td>
-                <td>"""),_display_(/*25.22*/name2),format.raw/*25.27*/("""</td>
-            </tr>
-            <tr>
-                <td>"""),_display_(/*28.22*/id3),format.raw/*28.25*/("""</td>
-                <td>"""),_display_(/*29.22*/reg3),format.raw/*29.26*/("""</td>
-                <td>"""),_display_(/*30.22*/name3),format.raw/*30.27*/("""</td>
-            </tr>
-        </table>
+            """),_display_(/*18.14*/for(student <- students) yield /*18.38*/ {_display_(Seq[Any](format.raw/*18.40*/("""
+                """),format.raw/*19.17*/("""<tr>
+                    <th>"""),_display_(/*20.26*/student/*20.33*/.IndexNo),format.raw/*20.41*/("""</th>
+                    <th>"""),_display_(/*21.26*/student/*21.33*/.RegistrationNo),format.raw/*21.48*/("""</th>
+                    <th>"""),_display_(/*22.26*/student/*22.33*/.Name),format.raw/*22.38*/("""</th>
+                </tr>
+            """)))}),format.raw/*24.14*/("""
+
+        """),format.raw/*26.9*/("""</table>
 
     </body>
 </html>"""))
@@ -62,9 +56,9 @@ Seq[Any](format.raw/*3.51*/("""
     }
   }
 
-  def render(id1:Int,id2:Int,id3:Int,reg1:String,reg2:String,reg3:String,name1:String,name2:String,name3:String): play.twirl.api.HtmlFormat.Appendable = apply(id1,id2,id3,reg1,reg2,reg3,name1,name2,name3)
+  def render(students:Array[Student]): play.twirl.api.HtmlFormat.Appendable = apply(students)
 
-  def f:((Int,Int,Int,String,String,String,String,String,String) => play.twirl.api.HtmlFormat.Appendable) = (id1,id2,id3,reg1,reg2,reg3,name1,name2,name3) => apply(id1,id2,id3,reg1,reg2,reg3,name1,name2,name3)
+  def f:((Array[Student]) => play.twirl.api.HtmlFormat.Appendable) = (students) => apply(students)
 
   def ref: this.type = this
 
@@ -74,9 +68,9 @@ Seq[Any](format.raw/*3.51*/("""
               /*
                   -- GENERATED --
                   SOURCE: app/views/home.scala.html
-                  HASH: d3c04119d00e0b52d33bc0984ba47a37b77f834a
-                  MATRIX: 775->1|997->128|1027->132|1361->439|1385->442|1440->470|1465->474|1520->502|1546->507|1638->572|1662->575|1717->603|1742->607|1797->635|1823->640|1915->705|1939->708|1994->736|2019->740|2074->768|2100->773
-                  LINES: 21->1|28->3|30->5|43->18|43->18|44->19|44->19|45->20|45->20|48->23|48->23|49->24|49->24|50->25|50->25|53->28|53->28|54->29|54->29|55->30|55->30
+                  HASH: 72b002b602499899be75c8b71fab8a2f324973e5
+                  MATRIX: 432->1|765->25|887->52|915->54|1454->566|1494->590|1534->592|1580->610|1638->641|1654->648|1683->656|1742->688|1758->695|1794->710|1853->742|1869->749|1895->754|1969->797|2008->809
+                  LINES: 17->1|22->2|27->2|28->3|43->18|43->18|43->18|44->19|45->20|45->20|45->20|46->21|46->21|46->21|47->22|47->22|47->22|49->24|51->26
                   -- GENERATED --
               */
           
